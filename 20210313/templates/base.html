@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +10,7 @@
 
     <title>{% block title %}{% endblock %}</title>
 
+    <link rel="icon" href="{% static 'images/favicon.png' %}" >
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     {% block customcss %}{% endblock %}
 </head>
