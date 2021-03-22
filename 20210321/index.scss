@@ -1,0 +1,124 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html{
+    font-size: 16px;
+    font-family: 'Philosopher', serif;
+}
+
+ul li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    background-color: unset;
+    border: none;
+    outline: none !important;
+    cursor: pointer;
+}
+
+#container{
+    // display: none;
+    height: 100vh;
+    transition: all 0.5s;
+}
+
+.container__cover{
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s;
+}
+
+
+.header{
+    &.cover{
+        position: relative;
+        width: 100%;
+        height: 300px;
+        background: {
+            image: url(news-bg.jpg);
+            position: center center;
+        }
+    }
+    
+    &-title{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4rem;
+    }
+}
+
+.mobile-menu__btn{
+    position: absolute;
+    z-index: 2;
+    top: 20px;
+    right: 15px;
+    & > span{
+        display: block;
+        width: 40px;
+        height: 2px;
+        margin-bottom: 10px;
+        background-color: black;
+        transition: all 0.7s;
+        
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+}
+
+.mobile-container{
+    position: absolute;
+    top: 70px;
+    right: 130px;
+    z-index: -1;
+    
+    & > ul li {
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+    }
+}
+
+.inview{
+    transform: translate(-250px, 50px);
+
+    & .container__cover{
+        opacity: 1;
+        visibility: visible;
+    }
+
+    & .mobile-menu__btn{
+        & > span{
+            &:nth-child(1){
+                transition-delay: 70ms;
+                transform: translateY(11px) rotate(135deg);
+            }
+
+            &:nth-child(2){
+                transition-delay: 0ms;
+                transform: translateX(-18px) scale(0);
+            }
+
+            &:nth-child(3){
+                transition-delay: 140ms;
+                transform: translateY(-11px) rotate(-135deg);
+            }
+        }
+    }
+
+}
